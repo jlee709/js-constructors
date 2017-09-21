@@ -18,37 +18,17 @@ function DamageSpell(name,cost,damage,description){
 }
 
 DamageSpell.prototype = Object.create(Spell.prototype);
-/**
- * A spell that deals damage.
- * We want to keep this code DRY (Don't Repeat Yourself).
- *
- * So you should use `Spell.call()` to assign the spell name, cost, and description.
- *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
- *
- * In addition, you will also want to assign `DamageSpell.prototype`
- * a value so that it inherits from `Spell`.
- * Make sure to call this OUTSIDE of the function declaration.
- *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
- *
 
 
-
- * @name DamageSpell
- * @param {string} name         The name of the spell.
- * @param {number} cost         The amount needed to cast this spell.
- * @param {number} damage       The amount of damage this spell deals.
- * @param {string} description  A short description of the spell.
- * @property {string} name
- * @property {number} cost
- * @property {number} damage
- * @property {string} description
- */
-
-
-
-
+function Spellcaster(name, health, mana){
+   this.name = name;
+   this.health = health;
+   this.mana = mana;
+   this.isAlive = true;
+   // this.inflictDamage = inflictDamage;
+   // this.spendMana();
+   // this.invoke();
+}
 
 
 /**
@@ -68,6 +48,15 @@ DamageSpell.prototype = Object.create(Spell.prototype);
  * @method  invoke
  */
 
+Spellcaster.prototype.inflictDamage = function(damage){
+   this.damage = damage;
+   this.health = health;
+   if(health < 0){
+      isAlive = false;
+   }else if(health === 0){
+      isAlive = false;
+   }
+};
   /**
    * @method inflictDamage
    *
@@ -88,6 +77,7 @@ DamageSpell.prototype = Object.create(Spell.prototype);
    * @param  {number} cost      The amount of mana to spend.
    * @return {boolean} success  Whether mana was successfully spent.
    */
+
 
   /**
    * @method invoke
