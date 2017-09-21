@@ -1,3 +1,17 @@
+
+
+
+
+// parent
+function Spell(name, cost , description){
+   this.name = name;
+   this.description = description;
+   this.cost = cost;
+   this.getDetails = function(){
+      return this.name + " " + " " + this.cost + " "+ " " +this.description;
+   };
+}
+
 /**
  * Creates a generic spell that can be cast.
  *
