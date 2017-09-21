@@ -12,27 +12,12 @@ function Spell(name, cost , description){
    };
 }
 
-/**
- * Creates a generic spell that can be cast.
- *
- * @name Spell
- * @param {string} name         The name of the spell.
- * @param {number} cost         The amount needed to cast this spell.
- * @param {string} description  A short description of the spell.
- * @property {string} name
- * @property {number} cost
- * @property {string} description
- * @method   getDetails
- */
+function DamageSpell(name,cost,damage,description){
+   Spell.call(this, name, cost, description);
+   this.damage = damage;
+}
 
-  /**
-   * Returns a string of all of the spell's details.
-   * The format doesn't matter, as long as it contains the spell name, cost, and description.
-   *
-   * @name getDetails
-   * @return {string} details containing all of the spells information.
-   */
-
+DamageSpell.prototype = Object.create(Spell.prototype);
 /**
  * A spell that deals damage.
  * We want to keep this code DRY (Don't Repeat Yourself).
@@ -47,6 +32,9 @@ function Spell(name, cost , description){
  *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype
  *
+
+
+
  * @name DamageSpell
  * @param {string} name         The name of the spell.
  * @param {number} cost         The amount needed to cast this spell.
@@ -57,6 +45,11 @@ function Spell(name, cost , description){
  * @property {number} damage
  * @property {string} description
  */
+
+
+
+
+
 
 /**
  * Now that you've created some spells, let's create
@@ -98,6 +91,21 @@ function Spell(name, cost , description){
 
   /**
    * @method invoke
+
+   !*
+   
+      if(spell){
+         if(spell instanceof spell){
+            if(this.spendMana(spellCost) === true)
+               if(spell insof damagespell && target insof SpellCast) 
+                  target.inflictFanage(spell.damage)
+         }
+      }
+
+
+
+
+   !*
    *
    * Allows the spellcaster to cast spells.
    * The first parameter should either be a `Spell` or `DamageSpell`.
